@@ -1,3 +1,29 @@
+import sys
+import subprocess
+import time
+
+# Функция-киллер для установки
+def bootstrap():
+    print("🚀 Начинаю принудительный запуск...")
+    try:
+        import aiosqlite
+        import dotenv
+        print("✅ Всё на месте, запускаюсь!")
+    except ImportError:
+        print("❌ Либ нет! Начинаю установку через PIP...")
+        try:
+            # Пытаемся поставить максимально быстро
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "aiosqlite", "python-dotenv"])
+            print("✅ Установка прошла успешно!")
+            # Даем системе "продышаться"
+            time.sleep(2) 
+        except Exception as e:
+            print(f"🔥 Ошибка при установке: {e}")
+            sys.exit(1)
+
+# Вызываем это САМЫМ ПЕРВЫМ
+bootstrap()
+
 import asyncio
 import logging
 import aiosqlite
@@ -394,4 +420,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
 
         pass
+
 
