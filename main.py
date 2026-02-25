@@ -17,7 +17,7 @@ from aiogram.fsm.context import FSMContext
 
 @dataclass
 class Config:
-    TOKEN = os.getenv("TOKEN") or os.getenv("BOT_TOKEN") or "8445707811:AAGWNfH-6rnTFNWp5VSML3ksc3vFVPEhCIU"
+    TOKEN = os.getenv("TOKEN") or os.getenv("BOT_TOKEN")
     ADMIN_USERNAME: str = "maksimpchelka"
     DB_PATH: str = "users.db"
     START_IMAGE_URL: str = "https://i.pinimg.com/736x/d0/5f/d3/d05fd38e32cd0a08e61fec7f91f15605.jpg"
@@ -394,3 +394,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
 
         pass
+
